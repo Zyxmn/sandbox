@@ -49,9 +49,10 @@
   (-main)
 
   ; search
-  (map #(let [recipe-map (-> % first )]
+  (def search-test (map #(let [recipe-map (-> % first )]
           {:match-count (count (re-seq #"olive oil" (val recipe-map)))
-           :recipe (key recipe-map)}) recipe-list)
+           :recipe (key recipe-map)}) recipe-list))
+  (reverse (sort-by :match-count search-test))
 
   (count (re-seq #"yolo" "yolo yolo1 and yolo2"))
   (filenames-in-zip "resources/recipes.zip")
