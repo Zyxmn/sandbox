@@ -1,32 +1,23 @@
 # recipe-search
 
-FIXME: description
-
-## Installation
-
-Download from http://example.com/FIXME.
-
 ## Usage
 
-FIXME: explanation
+1) Using leiningen:
 
-    $ java -jar recipe-search-0.1.0-standalone.jar [args]
+To try it out, you must have leiningen installed on your system.
+```
+lein run "enter you phrase here"
+```
 
-## Options
+2) Using repl:
 
-FIXME: listing of options this app accepts.
+Go to the core namespace and see the comment section for examples.
+Typical you call the `search-recipe` function with your given phrase.
 
-## Examples
+```
+(search-recipe "tomato")
+```
 
-...
-
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
 
 ## License
 
