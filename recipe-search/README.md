@@ -14,6 +14,9 @@ lein run "enter your phrase here"
 Go to the core namespace and see the comment section for examples.
 Typical you call the `search-recipe` function with your given phrase.
 
+Also make sure the symbol `recipe-list` in the core namespace is evaluated
+before calling the `search-recipe` function.
+
 ```
 (search-recipe "tomato")
 ```
