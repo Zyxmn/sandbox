@@ -6,7 +6,7 @@
 
 To try it out, you must have leiningen installed on your system.
 ```
-lein run "enter you phrase here"
+lein run "enter your phrase here"
 ```
 
 2) Using repl:
