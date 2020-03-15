@@ -13,6 +13,9 @@
 ## Another Heading 2
 ### Heading 3
 #### Heading X
+##### Heading Y
+###### Heading Y
+####### Heading Y
 ## Heading Final")
 
 (def asci-L "\u2514")
@@ -23,14 +26,20 @@
   [input-string]
   (let [no-of-hash (count (re-seq #"#" input-string))
         hash-regex (apply str (repeat no-of-hash "#"))
-        no-of-tabs (apply str (repeat (- no-of-hash 1) "\t"))]
+        no-of-tabs (apply str
+                          (repeat (+ 4 (* (- no-of-hash 4) 4))
+
+
+                                     " "))]
     (println "no-of-hash: " no-of-hash)
     (println "hash-regex" hash-regex)
     (cond
-      (= no-of-hash 1) (clojure.string/replace input-string #"#" "\u2514\u2500")
-      (= no-of-hash 2) (clojure.string/replace input-string #"##" "\t\u251C\u2500")
-      (>= no-of-hash 3) (clojure.string/replace input-string (re-pattern hash-regex)
-                                                (str "\t\u2502" no-of-tabs "\u2514\u2500")))))
+      (= no-of-hash 1) (clojure.string/replace input-string #"#" "\u2514\u2500\u2500")
+      (= no-of-hash 2) (clojure.string/replace input-string #"##" "    \u251C\u2500\u2500")
+      (= no-of-hash 3) (clojure.string/replace input-string (re-pattern hash-regex)
+                                                "    \u2502   \u2514\u2500\u2500")
+      (>= no-of-hash 4) (clojure.string/replace input-string (re-pattern hash-regex)
+                                                (str "    \u2502   " no-of-tabs "\u2514\u2500\u2500")))))
 
 (defn table-of-contents
   [input-string]
