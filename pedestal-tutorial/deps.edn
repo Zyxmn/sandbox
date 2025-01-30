@@ -1,0 +1,10 @@
+{:deps
+ {io.pedestal/pedestal.service {:mvn/version "0.5.7"}
+  io.pedestal/pedestal.route   {:mvn/version "0.5.7"}
+  io.pedestal/pedestal.jetty   {:mvn/version "0.5.7"}
+  org.slf4j/slf4j-simple       {:mvn/version "1.7.28"}}
+ :aliases {
+           :build  {:deps {io.github.clojure/tools.build {:git/tag "v0.10.6" :git/sha "52cf7d6"}}
+                    :ns-default build}
+           }
+ :paths ["src" "test"]}
