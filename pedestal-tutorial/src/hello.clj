@@ -1,38 +1,36 @@
 (ns hello
-  (:require [io.pedestal.http :as http]
-            [io.pedestal.http.route :as route]))
+  (:import (java.util Date)
+           (java.time Date))
+  (:gen-class))
 
-
-(prn "yolo")
-
-(defn hello-world [arg]
+(defn -main [& args]
   (println "yolo"))
-
-(map inc [1 2 3])
-
-(reduce (fn [a b] (+ a b)) 1 [2 3 4])
 
 (comment
 
- (defn drop-nth-items [coll n]
-   (->> coll
-       (partition-all n)
-       (map #(if (= (count %) n)
-               (drop-last %)
-               %))
-       flatten))
 
- (drop-nth-items  [1 2 3 4 5 6 7 8] 3)
+  ;hh:mm:ss.hh
+  (defn quartz-sec [vib-num]
+    (let [total-seconds  (long (/ vib-num 100))
+          hours (long (/ total-seconds 3600))
+          minutes (-> (mod total-seconds  3600) (/ 60) long)
+          seconds (-> (mod total-seconds  3600) (mod 60) long)
+          last-two-digits (->> vib-num str vec (take-last 2) (apply str))
+          ]
+      (println hours)
+      (str hours ":" minutes ":" seconds"."last-two-digits)))
 
- (<= 1 1 )
+   123456656456
 
-(defn factorial! [n]
-  (loop [total 1
-         next-num n]
-    (if (>= 1 next-num)
-      total
-      (recur (* total next-num) (dec next-num)))))
+(->> 366144 str vec (take-last 2) (apply str))
+ 3600 60 1 44
 
- (factorial! 4)
+(quartz-sec 89999999999999999999)
+(format "%.2f" (float (/ 366144 100)))
+(int (/ 366144 100))
+(Date. )
 
-  )
+(int (/ 7 5))
+
+
+)
