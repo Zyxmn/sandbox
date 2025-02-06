@@ -34,11 +34,10 @@
 (int (/ 7 5))
 
 (defn custom-calendar
-  "Given date return the current week and the week before and after given date"
+  "Given date return a lazy seq of 7 days before and after given date"
   [year month day]
-  (->> (str year "-" month "-" day)
-       (. LocalDate parse) ; .method doesnt work on static methods it looks like so use class/static-method or (. class static-method)
-       (.atStartOfDay)))
+  (let [localDateInstance (.atStartOfDay (. LocalDate parse (str year "-" month "-" day)))]
+    (map (fn [index] (.plusDays localDateInstance index)) (range -7 8))))
 
 ;LocalDate.parse(str "2015-12-22").atStartOfDay()
 
@@ -53,6 +52,7 @@
 (.atStartOfDay (. LocalDate parse "2015-12-22"))
 
 (custom-calendar 2015 12 21)
+(rest (range -7 8))
 
 
 
